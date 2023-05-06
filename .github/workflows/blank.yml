@@ -1,0 +1,35 @@
+
+
+class Solution {
+    func permute(_ nums: [Int]) -> [[Int]] {
+ 
+ func calcAllPerm(_ nums :[Int]) -> [[Int]] {
+     if nums.count == 0 {
+         return [[]]
+     }
+var a = [[Int]]()
+var res = [[Int]]()
+for i in 0..<nums.count {
+    var arr = [Int]()
+    for j in 0..<nums.count {
+        if nums[i] != nums[j] {
+arr.append(nums[j])
+        }
+    }
+    var ans = calcAllPerm(arr)
+    for k in ans {
+        var a = k
+        a.insert(nums[i],at:0)
+        res.append(a)
+    }
+}
+
+
+return res
+ }
+
+return calcAllPerm(nums)
+
+
+    }
+}
